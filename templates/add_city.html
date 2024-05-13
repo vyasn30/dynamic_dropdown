@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add City</title>
+</head>
+<body>
+    <h1>Add a New City</h1>
+    <form action="{{ url_for('add_city') }}" method="post">
+        <label for="city_name">City Name:</label>
+        <input type="text" id="city_name" name="city_name" required><br><br>
+        <label for="state_id">Select State:</label>
+        <select id="state_id" name="state_id">
+            {% for state in states %}
+                <option value="{{ state.state_id }}">{{ state.state_name }}</option>
+            {% endfor %}
+        </select><br><br>
+        <button type="submit">Add City</button>
+    </form>
+</body>
+</html>
